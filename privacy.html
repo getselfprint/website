@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy - Selfprint</title>
+    <meta
+      name="description"
+      content="Selfprint collects nothing. Everything you enter stays encrypted on your device, with an optional passphrase only you hold. Here's exactly what that means."
+    />
+    <link rel="canonical" href="https://selfprint.org/privacy" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/site.css" />
+    <meta property="og:title" content="Privacy - Selfprint" />
+    <meta property="og:description" content="Selfprint collects nothing. Everything stays encrypted on your device, with an optional passphrase only you hold." />
+    <meta property="og:url" content="https://selfprint.org/privacy" />
+    <meta property="og:image" content="https://selfprint.org/og.png" />
+  </head>
+  <body>
+    <header class="site-header">
+        <a class="brand" href="/">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6F5433" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2.5"/></svg>
+          <span>Selfprint</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/terms">Terms</a>
+          <a class="pill" href="https://try.selfprint.org/">Try it live</a>
+        </nav>
+      </header>
+
+      <main class="prose wrap">
+        <p class="label-mono">Last updated: 2026-11-17</p>
+        <h1>Privacy</h1>
+        <p class="summary">
+          Selfprint collects nothing. There is no account and no server that
+          receives your answers. Everything you enter stays on your device,
+          encrypted at rest, and you can add a passphrase only you hold to lock
+          it. Because the whole app is open source, you can verify all of this
+          for yourself.
+        </p>
+
+        <h2>What we collect</h2>
+        <p>
+          Nothing. No account, no analytics, no cookies, no tracking, no
+          third-party scripts. There is no server that receives your data, so
+          there is nothing for us to collect, sell, share, or lose. We could not
+          read your answers even if we wanted to.
+        </p>
+
+        <h2>Where your data lives</h2>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>What</th><th>Where</th><th>Encrypted</th><th>How to delete</th></tr></thead>
+            <tbody>
+              <tr><td>Answers, claims, settings, API key</td><td>Your browser's local storage (IndexedDB)</td><td>Yes - AES-GCM (key kept on your device, or sealed by your passphrase if you set one)</td><td>Wipe button in Settings</td></tr>
+              <tr><td>Your passphrase (if you set one)</td><td>Nowhere - never stored</td><td>n/a</td><td>n/a</td></tr>
+              <tr><td>Exports you download</td><td>Wherever you save them</td><td>Your choice</td><td>Delete the file</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Locking your data</h2>
+        <p>
+          Your data is always encrypted at rest. How the key is protected is up
+          to you:
+        </p>
+        <p>
+          <strong>By default, no passphrase.</strong> The encryption key is kept
+          on your device so the app opens straight away. Your data stays off any
+          server and scoped to this browser, but it isn't protected by a secret:
+          anyone who can use this browser profile can open it.
+        </p>
+        <p>
+          <strong>Add a passphrase for a real lock.</strong> In
+          Settings &rarr; Security you can seal the key with a passphrase. The
+          app can then only be opened with it, and the passphrase is never
+          stored - not by us, and not on your device.
+        </p>
+
+        <h2>What leaves your device, and when</h2>
+        <p>
+          Only what you choose to send to an AI provider you set up yourself,
+          and only at the moment you send it, plus anything you export
+          yourself.
+        </p>
+        <p>
+          When you use an AI model, your browser talks to <strong>your</strong>
+          provider directly, using <strong>your</strong> own key or account. The
+          model runs on their infrastructure, not ours; Selfprint is not a party
+          to that exchange and never receives a copy. What happens to that data
+          is governed entirely by that provider's own privacy terms, which you
+          should read. If you run a model locally or in your browser, even that
+          stays on your machine.
+        </p>
+
+        <h2>Third parties</h2>
+        <p>
+          The only third parties are ones you choose: the AI provider you
+          configure (their terms apply to what you send them) and the static web
+          host that serves these pages, which can see standard request logs (IP
+          address, time) when a page loads. We don't add anyone else, no
+          analytics firms, no ad networks, no data brokers.
+        </p>
+
+        <h2>Other people's information</h2>
+        <p>
+          The Mirror feature stores a respondent's answers locally and keeps
+          them sealed until they choose to share. Other people's names are
+          redacted from exports by default.
+        </p>
+
+        <h2>Sensitive information</h2>
+        <p>
+          The interview may touch health, relationships, and beliefs. It stays
+          local, and you control every line - read, edit, or delete any claim.
+        </p>
+
+        <h2>Lost passphrase</h2>
+        <p>
+          If you set a passphrase and then forget it, your data cannot be
+          recovered - by us or anyone. This is by design.
+        </p>
+
+        <h2>How we enforce "stays local"</h2>
+        <p>
+          The app is static files with no backend. A strict
+          Content-Security-Policy limits where the app may connect - only this
+          origin and the AI providers it supports. You can watch every outbound
+          request in the Network activity panel in Settings, and the project is
+          open source and self-hostable.
+        </p>
+
+        <h2>Your device, your responsibility</h2>
+        <p>
+          Encryption protects your data at rest in your browser. It cannot
+          protect a device that is already compromised, a browser extension with
+          access to the page, or a passphrase you share or write down. Keeping
+          your device secure - and your passphrase, if you set one - is up to
+          you. Selfprint is provided as is, without warranty of any kind; see the
+          <a href="/terms">Terms</a>.
+        </p>
+
+        <h2>Age</h2>
+        <p>
+          Selfprint is intended for adults. You must be 18 or older to use it. We
+          don't knowingly collect anything from anyone, because we don't collect
+          anything at all.
+        </p>
+
+        <h2>Changes and contact</h2>
+        <p>
+          This policy may change as the app evolves; the current version always
+          lives here and in the open-source repository, with its date at the top.
+          Questions? Reach the maintainers through the repository.
+        </p>
+      </main>
+
+      <footer class="site-footer">
+        <a href="/">Home</a> · <a href="/terms">Terms</a> ·
+        <a href="https://github.com/getselfprint/selfprint" target="_blank" rel="noopener">GitHub</a>
+      </footer>
+  </body>
+</html>

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Selfprint - an AI that answers the way you would</title>
+    <meta
+      name="description"
+      content="Selfprint interviews you, turns your answers into an editable personality model, and exports a persona file any AI can use. Local-first, no account, open source."
+    />
+    <link rel="canonical" href="https://selfprint.org/" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/site.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Selfprint - an AI that answers the way you would" />
+    <meta
+      property="og:description"
+      content="Interview yourself, build an editable personality model, export a persona file any AI can use. Everything stays on your device."
+    />
+    <meta property="og:url" content="https://selfprint.org/" />
+    <meta property="og:image" content="https://selfprint.org/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Selfprint" />
+    <meta
+      name="twitter:description"
+      content="An AI that answers the way you would. Local-first and open source."
+    />
+    <meta name="twitter:image" content="https://selfprint.org/og.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Selfprint",
+        "description": "Interviews you, turns your answers into an editable personality model, and exports a persona file any AI can use.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "license": "https://opensource.org/licenses/MIT"
+      }
+    </script>
+  </head>
+  <body class="dotted">
+    <header class="site-header">
+        <a class="brand" href="/">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6F5433" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2.5"/></svg>
+          <span>Selfprint</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="btn btn-secondary" href="https://github.com/getselfprint/selfprint" target="_blank" rel="noopener">
+            Source code
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+          </a>
+          <a class="btn btn-primary" href="https://try.selfprint.org/">Try it live</a>
+        </nav>
+      </header>
+
+      <main class="wrap">
+        <section class="hero">
+          <div class="hero-text">
+            <span class="label-mono">Everyone wants an AI with a soul</span>
+            <h1>An AI that answers the way you would.</h1>
+            <p class="lede">
+              A private interview that builds a model of how you think, decide,
+              and speak - then exports it as a file any AI can use to answer,
+              and act, as you.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="https://try.selfprint.org/">
+                <span>Try it live</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn btn-secondary" href="/privacy">How your data is kept</a>
+            </div>
+            <p class="assurance">
+              No account, no server. Everything is encrypted on your device and
+              works offline after the first load.
+            </p>
+          </div>
+
+          <aside class="layers" aria-label="The six layers">
+            <div class="band" style="background: var(--band-01)">
+              <span class="n">01</span>
+              <span><span class="name">Facts</span></span>
+            </div>
+            <div class="band" style="background: var(--band-02); margin-left: clamp(0px, 2vw, 22px)">
+              <span class="n">02</span>
+              <span><span class="name">Formative stories</span></span>
+            </div>
+            <div class="band" style="background: var(--band-03); margin-left: calc(clamp(0px, 2vw, 22px) * 2)">
+              <span class="n">03</span>
+              <span><span class="name">Values in conflict</span></span>
+            </div>
+            <div class="band" style="background: var(--band-04); margin-left: calc(clamp(0px, 2vw, 22px) * 3)">
+              <span class="n">04</span>
+              <span><span class="name">Triggers &amp; soothers</span></span>
+            </div>
+            <div class="band" style="background: var(--band-05); margin-left: calc(clamp(0px, 2vw, 22px) * 4)">
+              <span class="n">05</span>
+              <span><span class="name">Contradictions</span></span>
+            </div>
+            <div class="band" style="background: var(--band-06); margin-left: calc(clamp(0px, 2vw, 22px) * 5)">
+              <span class="n">06</span>
+              <span><span class="name">Voice</span></span>
+            </div>
+          </aside>
+        </section>
+
+        <section class="how">
+          <span class="label-mono">How it works</span>
+          <div class="steps">
+            <div class="step">
+              <span class="step-n">1</span>
+              <h3>Interview</h3>
+              <p>
+                Short, specific questions about real moments, not a personality
+                quiz. Answer in your own words; skip anything, or keep an answer
+                private.
+              </p>
+            </div>
+            <div class="step">
+              <span class="step-n">2</span>
+              <h3>Review every claim</h3>
+              <p>
+                The model turns your answers into plain-language claims, each
+                with the evidence it came from. Confirm, edit, or delete any
+                line - nothing is hidden.
+              </p>
+            </div>
+            <div class="step">
+              <span class="step-n">3</span>
+              <h3>Export and use it</h3>
+              <p>
+                Download a Markdown file that makes any AI - hosted, local, or
+                an agent - answer and act the way you would.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="showcase">
+          <span class="label-mono">What it builds</span>
+          <div class="showcase-grid">
+            <div class="showcase-left">
+              <div class="sec-head">
+                <h2>A model you can read, line by line.</h2>
+                <p>
+                  Not a black box. Every claim shows where it came from and how
+                  sure the model is - and the whole thing exports as plain
+                  Markdown.
+                </p>
+              </div>
+              <div class="claim-card">
+              <span class="claim-tag">Inferred</span>
+              <p class="claim-text">
+                Avoids conflict with family, but confronts it directly at work.
+              </p>
+              <div class="claim-ev">
+                <span class="label-mono">Evidence</span>
+                <p>
+                  "When my dad brings up politics I change the subject. But I'll
+                  push back hard in a design review."
+                </p>
+              </div>
+              <span class="claim-layer">Layer 03 · Values in conflict</span>
+              </div>
+            </div>
+
+            <div class="export-card">
+              <div class="export-bar">
+                <span class="label-mono">persona.md</span>
+                <span class="label-mono">your export</span>
+              </div>
+<pre># Persona: Alex
+
+You are answering as Alex. Stay inside what
+the profile supports; if it doesn't cover a
+situation, say so instead of guessing.
+
+## How I decide
+- Avoids conflict with family; confronts it
+  directly at work.
+- Gathers one more opinion before deciding,
+  rarely more than one.
+
+## How I sound
+- Dry, understated. Deflects praise with a joke.</pre>
+            </div>
+          </div>
+          <p class="showcase-cap">
+            Paste it into any model, or wire it into an agent. No lock-in, and
+            nothing routes through a Selfprint server.
+          </p>
+        </section>
+
+        <section class="features">
+          <article class="feature">
+            <div class="k"><span class="label-mono">Private</span><h2>It stays on your device</h2></div>
+            <p class="v">
+              No account, no server, no analytics. Everything stays encrypted on
+              your device, and you can add a passphrase to lock it so only you
+              can open it. <a href="/privacy">Where your data lives</a>.
+            </p>
+          </article>
+          <article class="feature">
+            <div class="k"><span class="label-mono">Legible</span><h2>You can read and edit every line</h2></div>
+            <p class="v">
+              The model is a list of plain-language <em>claims</em>, each with
+              its evidence and a confidence level. Nothing is hidden; you
+              confirm, edit, or delete anything.
+            </p>
+          </article>
+          <article class="feature">
+            <div class="k"><span class="label-mono">Portable</span><h2>Yours to take anywhere</h2></div>
+            <p class="v">
+              The output is Markdown that works with any model, hosted or local.
+              No lock-in. The interview and distiller prompts are open source.
+            </p>
+          </article>
+          <article class="feature">
+            <div class="k"><span class="label-mono">Honest</span><h2>Honest about what it is</h2></div>
+            <p class="v">
+              It's a model of how you tend to decide and speak, built from what
+              you told it, not a copy of your mind, and only as good as your
+              answers. It will be wrong sometimes, so Test mode exists to find
+              and fix that.
+            </p>
+          </article>
+        </section>
+
+        <section class="models">
+          <div class="sec-head">
+            <span class="label-mono">Your model, your key</span>
+            <h2>Runs on your terms.</h2>
+            <p>
+              Pick where the model runs. Your key and your answers stay on your
+              device; nothing routes through a server we control.
+            </p>
+          </div>
+          <div class="models-grid">
+            <div class="model">
+              <h3>In this browser</h3>
+              <p>A free model via WebGPU. No key, nothing leaves the device.</p>
+            </div>
+            <div class="model">
+              <h3>Anthropic</h3>
+              <p>Your own Claude API key, stored only on this device.</p>
+            </div>
+            <div class="model">
+              <h3>OpenAI-compatible</h3>
+              <p>OpenAI, OpenRouter, or any endpoint with the same API.</p>
+            </div>
+            <div class="model">
+              <h3>Local server</h3>
+              <p>Point at Ollama or your own server. Works fully offline.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        Local-first.
+        <a href="https://github.com/getselfprint/selfprint" target="_blank" rel="noopener">Open source</a>.
+        © Selfprint. ·
+        <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+      </footer>
+  </body>
+</html>

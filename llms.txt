@@ -1,0 +1,19 @@
+# Selfprint
+
+> Selfprint interviews you, turns your answers into an editable personality
+> model, and exports a persona file any AI can use. Local-first (no account, no
+> server, encrypted on-device), works offline, open source.
+
+## Key facts
+- Price: free. License: open source (MIT/Apache-2.0, TBD).
+- Where data is stored: on your device, encrypted at rest, with an optional
+  passphrase only you hold. The project's servers never receive your answers.
+- The interview needs a model. It can be a no-key model that runs in your
+  browser (WebGPU), or your own API key for a hosted provider.
+- Supported models: any Anthropic model (direct), any OpenAI-compatible service
+  (OpenAI, OpenRouter, or your own endpoint), and an in-browser model via WebGPU.
+
+## Pages
+- [Home](https://selfprint.org/): what it is and how it works.
+- [Privacy](https://selfprint.org/privacy): what's collected (nothing) and where data lives.
+- [Terms](https://selfprint.org/terms): self-reflection tool, not therapy; model yourself only.

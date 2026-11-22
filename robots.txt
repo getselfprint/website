@@ -1,0 +1,22 @@
+# Selfprint - the public site is fully indexable. The app lives on
+# try.selfprint.org (noindex) and carries no public content here.
+User-agent: *
+Allow: /
+
+# AI crawlers explicitly allowed on the public pages (decide per launch).
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://selfprint.org/sitemap.xml

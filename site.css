@@ -1,0 +1,579 @@
+/* Public-site styles - the app's design language (spec §11), self-contained,
+   fonts served locally (no remote fonts, per §15). */
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/space-grotesk-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --ground: #fff;
+  --sand-50: #faf7f1;
+  --sand-100: #f4eee3;
+  --sand-200: #e9dfce;
+  --sand-300: #d8cab2;
+  --band-01: #fff;
+  --band-02: #faf7f1;
+  --band-03: #f4eee3;
+  --band-04: #eee6d7;
+  --band-05: #e6dbc8;
+  --band-06: #dccfb8;
+  --ink: #1e1a15;
+  --muted: #554b3f;
+  --accent: #6f5433;
+  --accent-hover: #4a3720;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Layout - identical to the app (src/styles/tokens.css) so the public site
+     and the app share the same container width and gutters. */
+  --pad-x: clamp(20px, 4vw, 56px);
+  --pad-y: clamp(28px, 5vw, 64px);
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+/* Dotted grid is a home-page treatment only (the landing opts in). */
+body.dotted {
+  background-image: radial-gradient(var(--sand-200) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--sand-300);
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Full-bleed content container, matching the app: no max-width cap, content
+   inset by --pad-x (the app's home/Map spans the full width the same way). */
+.wrap {
+  padding: 0 var(--pad-x);
+}
+/* Reading column for prose pages - mirrors the app's narrow screens (Facts,
+   Settings), which center a ~640-720px column under the same full-bleed header. */
+.narrow {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Header - full-bleed with the border edge-to-edge, content inset by --pad-x
+   (identical treatment to the app's AppHeader). */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  padding: 18px var(--pad-x);
+  border-bottom: 1px solid var(--sand-200);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-nav a:hover {
+  color: var(--ink);
+}
+/* The header CTAs reuse the hero button styles; re-assert their colors so the
+   generic .site-nav a rules don't override them, and dim the external icon. */
+.site-nav .btn {
+  text-decoration: none;
+}
+.site-nav .btn-secondary,
+.site-nav .btn-secondary:hover {
+  color: var(--ink);
+}
+.site-nav .btn-primary,
+.site-nav .btn-primary:hover {
+  color: var(--ground);
+}
+.site-nav .btn svg {
+  opacity: 0.7;
+}
+.site-nav .pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--ground);
+}
+/* Keep the pill's text legible on hover (the generic .site-nav a:hover above
+   would otherwise turn it dark-on-dark). */
+.site-nav .pill:hover {
+  color: var(--ground);
+  opacity: 0.9;
+}
+.lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 48px 64px;
+  padding: var(--pad-y) 0;
+}
+.hero-text {
+  flex: 1 1 340px;
+  min-width: 0;
+}
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  margin: 16px 0 18px;
+  text-wrap: balance;
+}
+.lede {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 44ch;
+  margin: 0;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 20px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--ground);
+}
+.btn-primary:hover {
+  color: var(--ground);
+  opacity: 0.9;
+}
+.btn-secondary {
+  background: var(--ground);
+  color: var(--ink);
+  border: 1px solid var(--sand-300);
+}
+.btn-secondary:hover {
+  color: var(--ink);
+  background: var(--sand-50);
+}
+.assurance {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Staircase visual */
+.layers {
+  flex: 1.1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.band {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border: 1px solid var(--sand-300);
+  border-radius: 14px;
+}
+.band .n {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.band .name {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 16px;
+}
+.band .sub {
+  font-size: 13px;
+  color: var(--muted);
+}
+.band-cap {
+  margin: 8px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Shared section head (showcase / models) */
+.how,
+.showcase,
+.models {
+  padding: var(--pad-y) 0;
+  border-top: 1px solid var(--sand-200);
+}
+.sec-head {
+  max-width: 62ch;
+  margin-bottom: 28px;
+}
+.sec-head .label-mono {
+  display: block;
+  margin-bottom: 8px;
+}
+.sec-head h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.sec-head p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* How it works */
+.how > .label-mono,
+.showcase > .label-mono {
+  display: block;
+  margin-bottom: 22px;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+.step-n {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--ground);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+.step h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 20px;
+  margin: 14px 0 6px;
+}
+.step p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Showcase: a claim card + the export preview */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px 40px;
+  align-items: stretch;
+}
+.showcase-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.showcase-left .sec-head {
+  margin-bottom: 0;
+  max-width: none;
+}
+/* Fill the left column so the claim card ends level with the taller export. */
+.showcase-left .claim-card {
+  flex: 1 1 auto;
+}
+.claim-card {
+  background: var(--sand-50);
+  border: 1px solid var(--sand-300);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.claim-tag {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px dashed var(--sand-300);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.claim-text {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 0;
+}
+.claim-ev {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: auto;
+  padding-top: 13px;
+  border-top: 1px solid var(--sand-200);
+}
+.claim-ev p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.claim-layer {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.export-card {
+  border: 1px solid var(--sand-300);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.export-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 16px;
+  background: var(--sand-100);
+  border-bottom: 1px solid var(--sand-300);
+}
+.export-card pre {
+  margin: 0;
+  padding: 18px;
+  background: var(--sand-50);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+.showcase-cap {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Bring your own model */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.model {
+  background: var(--sand-50);
+  border: 1px solid var(--sand-200);
+  border-radius: 14px;
+  padding: 18px;
+}
+.model h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 17px;
+  margin: 0 0 4px;
+}
+.model p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Feature rows */
+.features {
+  padding: 8px 0 24px;
+}
+.feature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--sand-200);
+}
+.feature .k {
+  flex: 0 0 180px;
+}
+.feature .v {
+  flex: 1 1 360px;
+  min-width: 0;
+  color: var(--muted);
+  margin: 0;
+}
+.feature h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 20px;
+  margin: 2px 0 0;
+}
+
+/* Prose (privacy / terms) */
+.prose h1 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(30px, 4vw, 42px);
+  letter-spacing: -0.02em;
+  margin: 36px 0 8px;
+}
+.prose h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 20px;
+  margin: 28px 0 6px;
+}
+.prose .summary {
+  font-size: 18px;
+  color: var(--muted);
+}
+/* Wrap wide tables so they scroll horizontally on narrow screens instead of
+   stretching the page (keeps the table's column layout intact). */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 12px 0;
+}
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 440px;
+  margin: 12px 0;
+  font-size: 15px;
+}
+.table-scroll table {
+  margin: 0;
+}
+.prose th,
+.prose td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--sand-200);
+  vertical-align: top;
+}
+.prose pre {
+  background: var(--sand-100);
+  border: 1px solid var(--sand-200);
+  padding: 12px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.site-footer {
+  padding: 28px var(--pad-x) 56px;
+  margin-top: 24px;
+  border-top: 1px solid var(--sand-200);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Phones: the header nav would otherwise cram four items onto one row and
+   wrap their text mid-word. Let it wrap cleanly, keep pills on one line, and
+   drop the decorative "On this device" assurance (the hero already says it). */
+@media (max-width: 600px) {
+  .site-header {
+    gap: 10px 16px;
+  }
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+  .site-nav .lock {
+    display: none;
+  }
+  .site-nav a,
+  .site-nav .pill {
+    white-space: nowrap;
+  }
+}
